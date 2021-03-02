@@ -1,17 +1,6 @@
-// reading files
+// fetch api in deno
 
-const decoder = new TextDecoder('utf-8')
+const res = await fetch('https://swapi.dev/api/films/')
+const data = await res.json()
 
-const data = await Deno.readFile('readme.txt')
-console.log(decoder.decode(data))
-
-// write files
-const encoder = new TextEncoder()
-const text = encoder.encode('hello again, Faraaz')
-
-await Deno.writeFile('readme.txt', text)
-
-// renaming and removing files
-
-await Deno.rename('readme.txt', 'deleteme.txt')
-await Deno.remove('deleteme.txt')
+console.log(data)
