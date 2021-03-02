@@ -1,9 +1,10 @@
-import { serve } from "https://deno.land/std@0.88.0/http/server.ts";
+import { camelCase, paramCase, pascalCase, snakeCase } from "https://deno.land/x/case/mod.ts";
 
-const server = serve({ port: 3000 })
-console.log('listening to requests on port 3000')
 
-for await (const req of server) {
-    const url = req.url
-    req.respond({ body: `Hello Faraaz, you visited ${ url }` })
-}
+
+const camel = camelCase("test string");
+const param = paramCase("test string");
+const pascal = pascalCase("test string");
+const snake = snakeCase("test string");
+
+console.log(camel, param, pascal, snake);
